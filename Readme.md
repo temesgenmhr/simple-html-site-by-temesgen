@@ -34,7 +34,7 @@ Bonus: write some unit tests!
    - Dynamic result rendering.
 
 4. **Unit Tests**:
-   - Bonus feature: Includes unit tests for controller and service logic.
+   - The solution includes unit tests for controller and service logic using jest.
 
 ---
 
