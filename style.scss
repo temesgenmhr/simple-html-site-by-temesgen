@@ -1,3 +1,90 @@
+// Global reset and box-sizing
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: aquamarine;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f9fc;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+// Section Styling
+section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+// Title Styling
+h1.title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+// Search input field styling
+#search-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s;
+}
+
+#search-input:focus {
+    border: 1px solid #3498db;
+    outline: none;
+}
+
+// Results List Styling
+#results {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+#results li {
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#results li:hover {
+    background-color: #bdc3c7;
+}
+
+// Responsive Design
+@media screen and (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+
+    h1.title {
+        font-size: 1.8rem;
+    }
+
+    #search-input {
+        font-size: 0.9rem;
+    }
+
+    #results li {
+        font-size: 0.9rem;
+    }
 }

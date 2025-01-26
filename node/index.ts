@@ -1,14 +1,16 @@
-import express from 'express'
+import express from "express";
+import cors from "cors";
+import { getCommentsController } from "./controller";
+import { corsMiddleware } from "./middleware";
+const app = express();
 
-const app = express()
+// Use the CORS middleware
+app.use(corsMiddleware);
 
-// TODO: update this so it makes a request to https://jsonplaceholder.typicode.com/comments?postId=3
-// and it returns a list of comments that match what the user entered
-// Bonus: cache results in memory for 5 mins
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+// Define the route for the root URL
+app.get("/", getCommentsController);
 
+// Start the server
 app.listen(3001, () => {
-    console.log('Server is running on port 3001')
-})
+  console.log("Server is running on port 3001");
+});

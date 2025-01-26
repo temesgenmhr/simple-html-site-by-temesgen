@@ -1,19 +1,22 @@
-document.getElementById('search-input')?.addEventListener('keyup', async (e) => {
-    // Search comments
-    // ---
-    // Use this API (node/index.ts): http://localhost:3000/
-    // Display the results in the UI
+document
+  .getElementById("search-input")
+  ?.addEventListener("keyup", async (e) => {
+    const input = (e.target as HTMLInputElement).value;
 
-    // Things to look out for
-    // ---
-    // Use es6
-    // Strongly typed
-    const res = await fetch('http://localhost:3001/')
-    const json = await res.json()
+    try {
+      const res = await fetch(
+        `http://localhost:3001/?keyword=${encodeURIComponent(input)}`
+      );
+      const json = await res.json();
 
-    const result = `<li>${json.join('</li><li>')}</li>`
-    const $results = document.getElementById('results')
-    if ($results) {
-        $results.innerHTML = result
+      const results = json
+        .map((comment: any) => `<li>${comment.name}</li>`)
+        .join("");
+      const $results = document.getElementById("results");
+      if ($results) {
+        $results.innerHTML = results;
+      }
+    } catch (error) {
+      console.error("Error fetching results:", error);
     }
-})
+  });
