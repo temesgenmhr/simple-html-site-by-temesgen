@@ -1,14 +1,8 @@
-This project is designed to understand your ability to solve a simple fullstack challenge.
-It is not designed to trick you, its simply to understand your ability.
-Feel free to use google but be sure to understand what you are copy pasting.
+# Simple Search Suggestion App
 
-We are looking for HTML, CSS, TS, Clean code, and ability to understand project setup skills in this test.
-The aim is to build a simple search suggestion like google. I.E as user is typing to display a list of results from a hardcoded API endpoint using.
+This project implements a Google-like search suggestion feature using **HTML**, **CSS**, **TypeScript**, and **Node.js**. The application demonstrates clean code principles, understanding of project setup, and efficient API integration.
 
-The flow should look like this:
-User types into UI (on keystroke) -> Use JS to make an ajax request to Node API -> Node API makes request to the jsonplaceholder -> Node API filters data and sends response -> Use JS to show relevant results
-
-Use node 22
+# Requirement
 
 1. Figure out how to run the project
 2. In ./script.ts write your code to make your AJAX request to the Node endpoint
@@ -18,7 +12,48 @@ Use node 22
 
 Bonus: write some unit tests!
 
+# Solution Feature
 
-Submit your code into Github or Gitlab for review. Please ensure the code is accessible publicly
+1. **Search Suggestion Flow**:
 
-Good luck
+   - User types in the input field.
+   - The app sends AJAX requests to a **Node.js API**.
+   - The API fetches data from `https://jsonplaceholder.typicode.com/comments?postId=3`, filters results based on user input, and sends them back to the frontend.
+   - Relevant results are displayed in real-time.
+
+2. **Node.js API**:
+
+   - Uses **Express.js** for routing.
+   - Includes middleware for CORS.
+   - Implements caching with `node-cache` for efficiency (cache duration: 5 minutes).
+
+3. **Frontend**:
+
+   - Built with semantic **HTML**, **SCSS**, and **TypeScript**.
+   - AJAX integration using `fetch` for API communication.
+   - Dynamic result rendering.
+
+4. **Unit Tests**:
+   - Bonus feature: Includes unit tests for controller and service logic.
+
+---
+
+# Project Structure
+
+```plaintext
+├── build/
+├── node/
+│   ├── controller.ts         // API controller to fetch and filter comments
+│   ├── index.ts              // Main server setup
+│   ├── middleware.ts         // CORS middleware configuration
+│   ├── service.ts            // Handles API logic and caching
+├── test/
+│   ├── controller.test.ts    // Unit tests for the controller
+│   ├── service.test.ts       // Unit tests for the service
+├── index.html                // HTML structure for the search UI
+├── script.ts                 // Handles frontend logic and API communication
+├── style.scss                // Custom SCSS for presentable UI
+├── package.json              // Project dependencies and scripts
+├── tsconfig.json             // TypeScript configuration
+└── jest.config.ts            // Configuration for Jest testing
+```
